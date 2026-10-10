@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tegfor_site_title</title>
+    <!-- Шрифты: Montserrat для заголовков, Inter для тела (как на ra-lama) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/style.css">
+</head>
+<body style="font-family: 'Inter', sans-serif;">
+
+    <!-- ============================================================
+         ШАПКА (как на ra-lama: логотип, соцсети, навигация)
+         ============================================================ -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <!-- tegfor_logo — здесь будет логотип -->
+                <span class="logo-text">tegfor_logo</span>
+            </div>
+
+            <div class="header-right">
+                <!-- tegfor_social — иконки соцсетей -->
+                <div class="header-social">
+                    <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" class="social-icon" aria-label="Email"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="nav-wrapper">
+                <nav class="nav-menu">
+                    <!-- tegfor_nav_1, tegfor_nav_2, tegfor_nav_3 — пункты меню -->
+                    <button class="nav-link" data-popup="about">tegfor_nav_1</button>
+                    <button class="nav-link" data-popup="cases">tegfor_nav_2</button>
+                    <button class="nav-link" data-popup="contacts">tegfor_nav_3</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         БЕГУЩАЯ СТРОКА УСЛУГ (как на ra-lama)
+         ============================================================ -->
+    <div class="marquee-wrapper">
+        <div class="marquee marquee-services">
+            <div class="marquee-content">
+                <!-- tegfor_service_1 ... tegfor_service_N — список услуг -->
+                <span>tegfor_service_1</span><span class="dot">•</span>
+                <span>tegfor_service_2</span><span class="dot">•</span>
+                <span>tegfor_service_3</span><span class="dot">•</span>
+                <span>tegfor_service_4</span><span class="dot">•</span>
+                <span>tegfor_service_5</span><span class="dot">•</span>
+                <span>tegfor_service_1</span><span class="dot">•</span>
+                <span>tegfor_service_2</span><span class="dot">•</span>
+                <span>tegfor_service_3</span><span class="dot">•</span>
+                <span>tegfor_service_4</span><span class="dot">•</span>
+                <span>tegfor_service_5</span><span class="dot">•</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- ============================================================
+             ГЛАВНЫЙ ЭКРАН (Hero)
+             ============================================================ -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <!-- tegfor_hero_title — главный заголовок -->
+                    <h1 class="hero-title">tegfor_hero_title</h1>
+                    <!-- tegfor_hero_subtitle — подзаголовок -->
+                    <p class="hero-subtitle">tegfor_hero_subtitle</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary" data-popup="contacts">tegfor_hero_button</button>
+                    </div>
+                </div>
+                <div class="hero-3d-wrapper">
+                    <!-- Сюда можно вставить canvas или 3D-модель, как на ra-lama -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             БЕГУЩАЯ СТРОКА ЛОГОТИПОВ ПАРТНЁРОВ
+             ============================================================ -->
+        <div class="marquee-wrapper">
+            <div class="marquee marquee-logos">
+                <div class="marquee-content">
+                    <!-- tegfor_partner_logo — логотипы партнёров -->
+                    <img src="#" alt="partner logo" class="client-logo">
+                    <img src="#" alt="partner logo" class="client-logo">
+                    <img src="#" alt="partner logo" class="client-logo">
+                    <img src="#" alt="partner logo" class="client-logo">
+                    <img src="#" alt="partner logo" class="client-logo">
+                    <img src="#" alt="partner logo" class="client-logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             СЕКЦИЯ КОНТАКТОВ (форма, как на ra-lama)
+             ============================================================ -->
+        <section class="contact-section" id="contact-main">
+            <div class="container">
+                <div class="contact-form-wrapper">
+                    <!-- tegfor_contacts_title — заголовок секции -->
+                    <h2 class="section-title">tegfor_contacts_title</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="tegfor_form_name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="tegfor_form_email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="tegfor_form_phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="custom-select" required>
+                                <option value="" disabled selected>tegfor_form_topic</option>
+                                <option value="1">tegfor_form_topic_1</option>
+                                <option value="2">tegfor_form_topic_2</option>
+                                <option value="3">tegfor_form_topic_3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="3" placeholder="tegfor_form_message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">tegfor_form_submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         ФУТЕР (общий)
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <p>tegfor_footer_text</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         ЧАТ-ВИДЖЕТ (как на ra-lama)
+         ============================================================ -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chatBubble">
+            <div class="chat-bubble-header">
+                <span>tegfor_chat_title</span>
+                <button class="chat-close" aria-label="Закрыть"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages">
+                <div class="chat-greeting">
+                    <i class="fas fa-comment-dots"></i> tegfor_chat_greeting
+                </div>
+            </div>
+            <div class="chat-input-row">
+                <input type="text" placeholder="tegfor_chat_placeholder">
+                <button class="chat-send">tegfor_chat_send</button>
+            </div>
+        </div>
+        <button class="chat-open-btn" id="chatOpenBtn" aria-label="Открыть чат">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <script src="../src/scripts/script.js"></script>
+</body>
+</html>
