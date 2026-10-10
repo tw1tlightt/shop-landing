@@ -1,0 +1,552 @@
+/* ============================================================
+   ПЕРЕМЕННЫЕ (взяты с ra-lama, но с твоими цветами)
+   ============================================================ */
+:root {
+    --bg-dark: #000000;
+    --bg-elevated: #0a0a0a;
+    --surface: rgba(20, 20, 30, 0.7);
+    --border: rgba(255, 255, 255, 0.15);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --accent1: #06cca8;      /* бирюзовый акцент */
+    --accent2: #f2f7a5;      /* жёлто-салатовый */
+    --glass-bg: rgba(15, 15, 25, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* ============================================================
+   СБРОС И БАЗА
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================
+   ШАПКА (glassmorphism)
+   ============================================================ */
+.header {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    flex-wrap: wrap;
+}
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff, #6bd4d0, #e7d738);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: transform 0.2s;
+}
+
+.logo-text:hover {
+    transform: scale(1.02);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-social .social-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+    transition: 0.2s;
+}
+
+.header-social .social-icon:hover {
+    background: var(--accent1);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.nav-wrapper {
+    order: 3;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 48px;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 6px 0;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent1);
+    transition: width 0.25s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================================
+   БЕГУЩАЯ СТРОКА (marquee)
+   ============================================================ */
+.marquee-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--surface);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+}
+
+.marquee-content {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: scrollMarquee 40s linear infinite;
+}
+
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-services .marquee-content span {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 20px;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+}
+
+.dot {
+    color: var(--accent1);
+}
+
+.client-logo {
+    height: 36px;
+    width: auto;
+    margin: 0 30px;
+    filter: brightness(0.75);
+    transition: filter 0.3s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.client-logo:hover {
+    filter: brightness(1);
+    transform: scale(1.02);
+}
+
+.marquee-logos:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* ============================================================
+   ГЛАВНЫЙ ЭКРАН (Hero)
+   ============================================================ */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0 20px;
+}
+
+.hero-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    order: 1;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(36px, 8vw, 70px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff, var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 4vw, 20px);
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    max-width: 600px;
+}
+
+.hero-3d-wrapper {
+    flex: 1;
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    min-height: 400px;
+}
+
+/* ============================================================
+   КНОПКИ
+   ============================================================ */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background: var(--accent1);
+    border-color: var(--accent1);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: none;
+    color: var(--accent1);
+    transform: translateY(-3px);
+}
+
+.btn-submit {
+    background: var(--accent1);
+    border: none;
+    color: #000;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background: var(--accent2);
+}
+
+/* ============================================================
+   СЕКЦИЯ КОНТАКТОВ
+   ============================================================ */
+.contact-section {
+    padding: 50px 0 80px;
+    background: var(--bg-elevated);
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 500;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+.contact-form-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group input,
+.form-group textarea,
+.custom-select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    border-radius: 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.custom-select:focus {
+    outline: none;
+    border-color: var(--accent1);
+    box-shadow: 0 0 0 2px rgba(6, 204, 168, 0.2);
+}
+
+.custom-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%23b0b0b0' d='M6 9L1 4h10z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    cursor: pointer;
+}
+
+.custom-select option {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* ============================================================
+   ФУТЕР
+   ============================================================ */
+.footer {
+    background: #000;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================
+   ЧАТ-ВИДЖЕТ
+   ============================================================ */
+.chat-widget {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 199;
+}
+
+.chat-bubble {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    min-height: 240px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+    transform: scale(0);
+    transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transform-origin: bottom right;
+    overflow: hidden;
+}
+
+.chat-bubble.active {
+    transform: scale(1);
+}
+
+.chat-bubble-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--accent1);
+    color: #000;
+    font-weight: 600;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.chat-greeting {
+    text-align: center;
+    padding: 20px;
+    color: var(--accent2);
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input-row {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chat-input-row input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.chat-input-row input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-send {
+    background: var(--accent1);
+    color: #000;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0 0 28px 0;
+}
+
+.chat-open-btn {
+    background: var(--accent1);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    font-size: 28px;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(6, 204, 168, 0.6);
+    animation: glowPulse 2.5s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(6, 204, 168, 0.6); }
+    50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(6, 204, 168, 0.4); }
+}
+
+.chat-open-btn:hover {
+    transform: scale(1.05);
+    background: var(--accent2);
+}
+
+/* ============================================================
+   АДАПТИВНОСТЬ
+   ============================================================ */
+@media (max-width: 768px) {
+    .header-container {
+        justify-content: space-between;
+        padding: 12px 16px;
+    }
+
+    .nav-wrapper {
+        display: none;
+    }
+
+    .hero {
+        padding: 40px 0 30px;
+        min-height: 60vh;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-grid {
+        flex-direction: column;
+    }
+
+    .hero-3d-wrapper {
+        height: 40vh;
+        min-height: 250px;
+    }
+
+    .contact-section {
+        padding: 30px 0 50px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .chat-bubble {
+        width: 260px;
+    }
+}
